@@ -129,9 +129,15 @@ with st.expander("How the data flows (network + protocols)"):
 """)
 with st.expander("Privacy & cookies"):
     st.markdown("""
-This dashboard sets **no tracking or advertising cookies** and stores **no personal data**: sensor data is
-about rooms, not people. The hosting platform may use strictly necessary session cookies to keep the
-websocket connection alive (exempt from consent under the ePrivacy Directive, Art. 5(3)).
+**Twin-FM's own code sets no cookies** and stores **no personal data**: sensor data is about rooms, not people.
+
+**But the hosting platform does.** Inspected in the browser on 3 Nov 2026, Streamlit Community Cloud adds
+analytics cookies to this page: `_ga`, `_gid` (Google Analytics), `_dc_gtm_…` (Google Tag Manager),
+`_dd_s` (Datadog session monitoring) and `ajs_anonymous_id` (Segment), plus browser-storage IDs, **without a
+consent banner**. Under the ePrivacy Directive Art. 5(3) and the GDPR, analytics cookies need prior consent;
+only strictly necessary ones are exempt. This is the **shared responsibility model** in practice: on a free
+PaaS the app owner controls the code, not the platform's tracking. A production twin would be self-hosted
+(e.g. a container on an EU cloud) with no third-party scripts.
 """)
 st.caption("Sources: Revit 2027 model (Snowdon Towers sample), EnergyPlus 24.1 via OpenStudio 3.8, "
            "Madrid TMYx 2009-2023 (climate.onebuilding.org), Open-Meteo API (CC BY 4.0).")
